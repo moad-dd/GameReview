@@ -1,10 +1,13 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { useState } from "react";
+import { Button, ButtonGroup } from "@chakra-ui/react";
 import "./App.css";
-import "bootstrap/dist/css/bootstrap.css";
 
 function App() {
-  return <></>;
+  return (
+    <>
+      <Button colorScheme="blue">Click</Button>
+    </>
+  );
 }
 
 export default App;
