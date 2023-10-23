@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { Button, ButtonGroup, Grid, GridItem, Show } from "@chakra-ui/react";
-import "./App.css";
 import Navbar from "./Components/Navbar";
 
 function App() {
@@ -12,7 +11,7 @@ function App() {
           lg: `"nav nav""aside main"`,
         }}
       >
-        <GridItem area={"nav"} bg={"gold"}>
+        <GridItem area={"nav"} bg={"white"}>
           <Navbar />
         </GridItem>
         <Show above="lg">
