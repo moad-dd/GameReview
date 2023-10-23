@@ -1,11 +1,29 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Button, ButtonGroup } from "@chakra-ui/react";
+import { Button, ButtonGroup, Grid, GridItem, Show } from "@chakra-ui/react";
 import "./App.css";
+import Navbar from "./Components/Navbar";
 
 function App() {
   return (
     <>
-      <Button colorScheme="red">Click</Button>
+      <Grid
+        templateAreas={{
+          base: `"nav""main"`,
+          lg: `"nav nav""aside main"`,
+        }}
+      >
+        <GridItem area={"nav"} bg={"gold"}>
+          <Navbar />
+        </GridItem>
+        <Show above="lg">
+          <GridItem area={"aside"} bg={"red"}>
+            Aside
+          </GridItem>
+        </Show>
+        <GridItem area={"main"} bg={"blue"}>
+          Main
+        </GridItem>
+      </Grid>
     </>
   );
 }
