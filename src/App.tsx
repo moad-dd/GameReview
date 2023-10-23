@@ -5,7 +5,7 @@ import "./App.css";
 function App() {
   return (
     <>
-      <Button colorScheme="blue">Click</Button>
+      <Button colorScheme="red">Click</Button>
     </>
   );
 }
