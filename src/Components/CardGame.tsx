@@ -3,6 +3,7 @@ import {
   Card,
   CardBody,
   CardHeader,
+  HStack,
   Heading,
   Image,
   Text,
@@ -10,6 +11,7 @@ import {
 import React from "react";
 import { game } from "../Hooks/useGame";
 import PlatformIcons from "./PlatformIcons";
+import ScoreCritic from "./ScoreCritic";
 
 interface Props {
   game: game;
@@ -20,12 +22,14 @@ const CardGame = ({ game }: Props) => {
     <Card borderRadius={7} overflow={"hidden"}>
       <Image src={game.background_image} />
       <CardBody>
-        <Heading fontSize="2xl">{game.name}</Heading>
-        <CardHeader>
+        <HStack paddingBottom={2} justifyContent={"space-between"}>
           <PlatformIcons
             platforms={game.parent_platforms.map((P) => P.platform)}
           />
-        </CardHeader>
+          <ScoreCritic score={game.metacritic} />
+        </HStack>
+
+        <Heading fontSize="2xl">{game.name}</Heading>
       </CardBody>
     </Card>
   );
