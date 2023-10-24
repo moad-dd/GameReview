@@ -5,7 +5,7 @@ import SwitchMode from "./SwitchMode";
 const Navbar = () => {
   return (
     <HStack justifyContent="space-between" padding="10px">
-      <Image src={logo} boxSize="60px" borderRadius="50px"></Image>
+      <Image src={logo} boxSize="60px" borderRadius="10px"></Image>
       <SwitchMode></SwitchMode>
     </HStack>
   );

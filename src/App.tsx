@@ -16,11 +16,15 @@ function App() {
           <Navbar />
         </GridItem>
         <Show above="lg">
-          <GridItem area={"aside"} borderColor="black" borderRadius="10px">
+          <GridItem area={"aside"} borderColor="white">
             Aside
           </GridItem>
         </Show>
-        <GridItem area={"main"} borderColor="black" borderRadius="10px">
+        <GridItem
+          area={"main"}
+          borderColor="black"
+          maxWidth={"-moz-fit-content"}
+        >
           <GridGame />
         </GridItem>
       </Grid>
