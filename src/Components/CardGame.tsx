@@ -12,6 +12,7 @@ import React from "react";
 import { game } from "../Hooks/useGame";
 import PlatformIcons from "./PlatformIcons";
 import ScoreCritic from "./ScoreCritic";
+import ImgUrl from "./ImgUrl";
 
 interface Props {
   game: game;
@@ -20,7 +21,7 @@ interface Props {
 const CardGame = ({ game }: Props) => {
   return (
     <Card borderRadius={7} overflow={"hidden"}>
-      <Image src={game.background_image} />
+      <Image src={ImgUrl(game.background_image)} />
       <CardBody>
         <HStack paddingBottom={2} justifyContent={"space-between"}>
           <PlatformIcons
