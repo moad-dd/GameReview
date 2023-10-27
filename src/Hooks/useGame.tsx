@@ -1,7 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import apiClient from "../service/api-client";
-import { useEffect, useState } from "react";
-import { CanceledError } from "axios";
+import useData from "./useData";
 
 export interface Platform {
   id: number;
@@ -17,34 +15,6 @@ export interface game {
   metacritic: number;
 }
 
-interface FetchResponseGame {
-  count: string;
-  results: game[];
-}
-
-const useGame = () => {
-  const [Games, setGame] = useState<game[]>([]);
-  const [Error, setError] = useState("");
-  const [isLoading, setLoading] = useState(true);
-  useEffect(() => {
-    const controller = new AbortController();
-    apiClient
-      .get<FetchResponseGame>("/games", { signal: controller.signal })
-      .then((Response) => {
-        setGame(Response.data.results);
-        setLoading(false);
-      })
-      .catch((error) => {
-        if (error instanceof CanceledError) return;
-        setError(error.message);
-        setLoading(false);
-      });
-
-    return () => {
-      controller.abort();
-    };
-  }, []);
-  return { Games, Error, isLoading };
-};
+const useGame = () => useData<game>("/games");
 
 export default useGame;
