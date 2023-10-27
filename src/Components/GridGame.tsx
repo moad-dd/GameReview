@@ -1,10 +1,15 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Container, SimpleGrid, Text, list } from "@chakra-ui/react";
+import { Container, SimpleGrid, Text } from "@chakra-ui/react";
 import useGame from "../Hooks/useGame";
 import CardGame from "./CardGame";
+import CardGameSkelton from "./CardGameSkeleton";
+import GameCardContainer from "./GameCardContainer";
 
 const GridGame = () => {
-  const { Games, Error } = useGame();
+  const { Games, Error, isLoading } = useGame();
+  const skeletons = [
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
+  ];
   return (
     <>
       {Error && <Text>{Error}</Text>}
@@ -13,8 +18,16 @@ const GridGame = () => {
         padding={10}
         spacing={10}
       >
+        {isLoading &&
+          skeletons.map((skeleton) => (
+            <GameCardContainer>
+              <CardGameSkelton key={skeleton} />
+            </GameCardContainer>
+          ))}
         {Games.map((game) => (
-          <CardGame game={game} key={game.id}></CardGame>
+          <GameCardContainer>
+            <CardGame game={game} key={game.id}></CardGame>
+          </GameCardContainer>
         ))}
       </SimpleGrid>
     </>
