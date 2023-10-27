@@ -4,11 +4,22 @@ import React from "react";
 import useGenre, { genre } from "../Hooks/useGenre";
 import useData from "../Hooks/useData";
 import ImgUrl from "./ImgUrl";
+import GenresListSkeleton from "./GenresListSkeleton";
 
 const GenresList = () => {
-  const { data } = useGenre();
+  const { data, isLoading, Error } = useGenre();
+  const listSkeletons = [
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
+  ];
+  if (Error) {
+    return null;
+  }
   return (
-    <List>
+    <List paddingY={10}>
+      {isLoading &&
+        listSkeletons.map((SkeletonItem) => (
+          <GenresListSkeleton key={SkeletonItem}></GenresListSkeleton>
+        ))}
       {data.map((Genre) => (
         <ListItem key={Genre.id}>
           <HStack marginBlock={2} columnGap={4}>

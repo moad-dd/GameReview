@@ -25,11 +25,7 @@ function App() {
             <GenresList />
           </GridItem>
         </Show>
-        <GridItem
-          area={"main"}
-          borderColor="black"
-          maxWidth={"-moz-fit-content"}
-        >
+        <GridItem area={"main"} maxWidth={"-moz-fit-content"}>
           <GridGame />
         </GridItem>
       </Grid>
