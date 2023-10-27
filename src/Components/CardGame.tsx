@@ -2,6 +2,7 @@
 import {
   Card,
   CardBody,
+  CardFooter,
   CardHeader,
   HStack,
   Heading,
