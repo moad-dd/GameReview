@@ -1,3 +1,7 @@
 .GenreName {
   text-wrap: wrap !important;
 }
+
+#menu {
+  margin-right: 15px !important;
+}

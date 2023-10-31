@@ -29,11 +29,12 @@ const GenresList = ({ SelectedGenre, onSelectGenre }: Props) => {
         <ListItem key={Genre.id}>
           <HStack marginBlock={2} columnGap={4}>
             <Image
-              boxSize="38px"
+              boxSize="40px"
               src={ImgUrl(Genre.image_background)}
               borderRadius={8}
             />
             <Button
+              noOfLines={1}
               variant="link"
               onClick={() => {
                 onSelectGenre(Genre);

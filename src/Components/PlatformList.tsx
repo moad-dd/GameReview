@@ -1,0 +1,28 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import { Menu, MenuButton, Button, MenuList, MenuItem } from "@chakra-ui/react";
+import { BsChevronDown } from "react-icons/bs";
+import "../App.css";
+import usePlatform from "../Hooks/usePlatforms";
+const PlatformList = () => {
+  const { data, Error } = usePlatform();
+
+  if (Error) {
+    return null;
+  }
+  return (
+    <>
+      <Menu id="menu">
+        <MenuButton as={Button} rightIcon={<BsChevronDown />}>
+          Platform
+        </MenuButton>
+        <MenuList zIndex="dropdown" maxHeight={"30vh"} overflowY={"scroll"}>
+          {data.map((platform) => (
+            <MenuItem key={platform.id}>{platform.name}</MenuItem>
+          ))}
+        </MenuList>
+      </Menu>
+    </>
+  );
+};
+
+export default PlatformList;
