@@ -21,7 +21,7 @@ interface Props {
 
 const CardGame = ({ game }: Props) => {
   return (
-    <Card height={"350px"}>
+    <Card>
       <Image src={ImgUrl(game.background_image)} />
       <CardBody>
         <HStack paddingBottom={2} justifyContent={"space-between"}>

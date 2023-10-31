@@ -1,12 +1,16 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { HStack, Image, List, ListItem, Text } from "@chakra-ui/react";
+import { Button, HStack, Image, List, ListItem, Text } from "@chakra-ui/react";
 import React from "react";
 import useGenre, { genre } from "../Hooks/useGenre";
 import useData from "../Hooks/useData";
 import ImgUrl from "./ImgUrl";
 import GenresListSkeleton from "./GenresListSkeleton";
+import "../App.css";
+interface Props {
+  onSelectGenre: (genre: genre) => void;
+}
 
-const GenresList = () => {
+const GenresList = ({ onSelectGenre }: Props) => {
   const { data, isLoading, Error } = useGenre();
   const listSkeletons = [
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
@@ -28,7 +32,16 @@ const GenresList = () => {
               src={ImgUrl(Genre.image_background)}
               borderRadius={8}
             />
-            <Text fontSize="lg">{Genre.name}</Text>
+            <Button
+              variant="link"
+              onClick={() => {
+                onSelectGenre(Genre);
+              }}
+              fontSize="lg"
+              className="GenreName"
+            >
+              {Genre.name}
+            </Button>
           </HStack>
         </ListItem>
       ))}

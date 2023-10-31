@@ -37,6 +37,7 @@ const PlatformIcons = ({ platforms }: Props) => {
           fontSize={"lg"}
           color={"gray.400"}
           as={IconsMap[platform.slug]}
+          key={platform.id}
         />
       ))}
     </HStack>
