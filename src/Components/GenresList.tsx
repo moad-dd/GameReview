@@ -8,9 +8,10 @@ import GenresListSkeleton from "./GenresListSkeleton";
 import "../App.css";
 interface Props {
   onSelectGenre: (genre: genre) => void;
+  SelectedGenre: genre | null;
 }
 
-const GenresList = ({ onSelectGenre }: Props) => {
+const GenresList = ({ SelectedGenre, onSelectGenre }: Props) => {
   const { data, isLoading, Error } = useGenre();
   const listSkeletons = [
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
@@ -37,6 +38,7 @@ const GenresList = ({ onSelectGenre }: Props) => {
               onClick={() => {
                 onSelectGenre(Genre);
               }}
+              fontWeight={Genre.id === SelectedGenre?.id ? "bold" : "normal"}
               fontSize="lg"
               className="GenreName"
             >
