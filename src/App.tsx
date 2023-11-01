@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Container, Grid, GridItem, Show } from "@chakra-ui/react";
+import { Container, Grid, GridItem, HStack, Show } from "@chakra-ui/react";
 import Navbar from "./Components/Navbar";
 import GridGame from "./Components/GridGame";
 import GenresList from "./Components/GenresList";
@@ -7,6 +7,7 @@ import { genre } from "./Hooks/useGenre";
 import { useState } from "react";
 import PlatformList from "./Components/PlatformList";
 import { platform } from "./Hooks/usePlatforms";
+import SortSelector from "./Components/SortSelector";
 
 export interface GameQuery {
   Genre: genre | null;
@@ -40,12 +41,15 @@ function App() {
           </GridItem>
         </Show>
         <GridItem padding={7} area={"main"}>
-          <PlatformList
-            selectedPlatform={GameQuery.Platform}
-            onSelectPlatform={(Platform) =>
-              setGameQuery({ ...GameQuery, Platform })
-            }
-          />
+          <HStack spacing={5} paddingStart={3} marginBottom={5}>
+            <PlatformList
+              selectedPlatform={GameQuery.Platform}
+              onSelectPlatform={(Platform) =>
+                setGameQuery({ ...GameQuery, Platform })
+              }
+            />
+            <SortSelector />
+          </HStack>
           <GridGame gameQuery={GameQuery} />
         </GridItem>
       </Grid>
