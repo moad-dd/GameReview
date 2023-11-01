@@ -1,5 +1,13 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Button, HStack, Image, List, ListItem, Text } from "@chakra-ui/react";
+import {
+  Button,
+  HStack,
+  Heading,
+  Image,
+  List,
+  ListItem,
+  Text,
+} from "@chakra-ui/react";
 import React from "react";
 import useGenre, { genre } from "../Hooks/useGenre";
 import useData from "../Hooks/useData";
@@ -25,6 +33,7 @@ const GenresList = ({ SelectedGenre, onSelectGenre }: Props) => {
         listSkeletons.map((SkeletonItem) => (
           <GenresListSkeleton key={SkeletonItem}></GenresListSkeleton>
         ))}
+      <Heading paddingBlock={5}>Genres</Heading>
       {data.map((Genre) => (
         <ListItem key={Genre.id}>
           <HStack marginBlock={2} columnGap={4}>

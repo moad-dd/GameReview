@@ -20,6 +20,7 @@ const useGame = (gameQuery: GameQuery) =>
       params: {
         genres: gameQuery.Genre?.id,
         platforms: gameQuery.Platform?.id,
+        ordering: gameQuery.SortOrder,
       },
     },
     [gameQuery]
