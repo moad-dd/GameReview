@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
+import { GameQuery } from "../App";
 import useData from "./useData";
 import { genre } from "./useGenre";
 import { platform } from "./usePlatforms";
@@ -12,14 +13,16 @@ export interface game {
   metacritic: number;
 }
 
-const useGame = (
-  SelectedGenre: genre | null,
-  SelectedPlatform: platform | null
-) =>
+const useGame = (gameQuery: GameQuery) =>
   useData<game>(
     "/games",
-    { params: { genres: SelectedGenre?.id, platforms: SelectedPlatform?.id } },
-    [SelectedGenre?.id, SelectedPlatform?.id]
+    {
+      params: {
+        genres: gameQuery.Genre?.id,
+        platforms: gameQuery.Platform?.id,
+      },
+    },
+    [gameQuery]
   );
 
 export default useGame;

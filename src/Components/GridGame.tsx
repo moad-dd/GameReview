@@ -12,14 +12,14 @@ import CardGameSkelton from "./CardGameSkeleton";
 import GameCardContainer from "./GameCardContainer";
 import { genre } from "../Hooks/useGenre";
 import { platform } from "../Hooks/usePlatforms";
+import { GameQuery } from "../App";
 
 interface Props {
-  SelectedGenre: genre | null;
-  SelectedPlatform: platform | null;
+  gameQuery: GameQuery;
 }
 
-const GridGame = ({ SelectedGenre, SelectedPlatform }: Props) => {
-  const { data, Error, isLoading } = useGame(SelectedGenre, SelectedPlatform);
+const GridGame = ({ gameQuery }: Props) => {
+  const { data, Error, isLoading } = useGame(gameQuery);
 
   const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
   return (
@@ -40,7 +40,7 @@ const GridGame = ({ SelectedGenre, SelectedPlatform }: Props) => {
           <Alert status="warning">
             <AlertIcon />
             Seems That There Is No Game For this{" "}
-            {SelectedGenre ? "Genre" : "Platform "}
+            {gameQuery.Genre ? "Genre" : "Platform "}
           </Alert>
         )}
         {data.map((game) => (
