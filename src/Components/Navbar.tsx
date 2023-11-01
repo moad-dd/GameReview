@@ -2,8 +2,10 @@ import { HStack, Image } from "@chakra-ui/react";
 import logo from "../assets/Logo.webp";
 import SwitchMode from "./SwitchMode";
 import SearchBar from "./SearchBar";
-
-const Navbar = () => {
+interface Props {
+  onSearch: (searchVal: string) => void;
+}
+const Navbar = ({ onSearch }: Props) => {
   return (
     <HStack padding="10px">
       <Image
@@ -12,7 +14,7 @@ const Navbar = () => {
         boxSize="60px"
         borderRadius="10px"
       ></Image>
-      <SearchBar />
+      <SearchBar onSearch={onSearch} />
       <SwitchMode></SwitchMode>
     </HStack>
   );

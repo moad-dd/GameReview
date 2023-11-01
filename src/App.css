@@ -8,3 +8,7 @@
 #menu1 {
   margin-inline: 15px !important;
 }
+
+form#SearchForm {
+  width: 100% !important;
+}
