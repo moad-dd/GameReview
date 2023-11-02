@@ -1,4 +1,5 @@
-import useData from "./useData";
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import Platforms from "../data/Platforms";
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
 export interface platform {
@@ -7,6 +8,9 @@ export interface platform {
   slug: string;
 }
 
-const usePlatform = () => useData<platform>("/platforms/lists/parents");
+const usePlatform = () => ({
+  data: Platforms.results,
+  Error: null,
+});
 
 export default usePlatform;

@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import useData from "./useData";
+import Genres from "../data/Genres";
 
 export interface genre {
   id: number;
@@ -7,6 +7,10 @@ export interface genre {
   image_background: string;
 }
 
-const useGenre = () => useData<genre>("/genres");
+const useGenre = () => ({
+  data: Genres.results,
+  isLoading: false,
+  Error: null,
+});
 
 export default useGenre;
