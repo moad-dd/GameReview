@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Platform, game } from "../Hooks/useGame";
+import { game } from "../Hooks/useGame";
+import { platform } from "../Hooks/usePlatforms";
 import {
   FaWindows,
   FaPlaystation,
@@ -14,7 +15,7 @@ import { BsGlobe } from "react-icons/bs";
 import { HStack, Icon } from "@chakra-ui/react";
 import { IconType } from "react-icons/lib/esm/iconBase";
 interface Props {
-  platforms: Platform[];
+  platforms: platform[];
 }
 
 const PlatformIcons = ({ platforms }: Props) => {

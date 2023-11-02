@@ -45,6 +45,7 @@ const GridGame = ({ gameQuery }: Props) => {
           {gameQuery.Genre ? "Genre" : "Platform "}
         </Alert>
       )}
+
       {data.map((game) => (
         <GameCardContainer key={game.id}>
           <CardGame game={game} key={game.id}></CardGame>
