@@ -22,34 +22,35 @@ const GridGame = ({ gameQuery }: Props) => {
   const { data, Error, isLoading } = useGame(gameQuery);
 
   const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+
+  if (Error) {
+    return <Text>{Error}</Text>;
+  }
   return (
-    <>
-      {Error && <Text>{Error}</Text>}
-      <SimpleGrid
-        columns={{ sm: 1, md: 2, lg: 3, xl: 4 }}
-        spacing={6}
-        padding={3}
-      >
-        {isLoading &&
-          skeletons.map((skeleton) => (
-            <GameCardContainer key={skeleton}>
-              <CardGameSkelton key={skeleton} />
-            </GameCardContainer>
-          ))}
-        {data.length == 0 && (
-          <Alert status="warning">
-            <AlertIcon />
-            Seems That There Is No Game For this{" "}
-            {gameQuery.Genre ? "Genre" : "Platform "}
-          </Alert>
-        )}
-        {data.map((game) => (
-          <GameCardContainer key={game.id}>
-            <CardGame game={game} key={game.id}></CardGame>
+    <SimpleGrid
+      columns={{ sm: 1, md: 2, lg: 3, xl: 4 }}
+      spacing={6}
+      padding={3}
+    >
+      {isLoading &&
+        skeletons.map((skeleton) => (
+          <GameCardContainer key={skeleton}>
+            <CardGameSkelton key={skeleton} />
           </GameCardContainer>
         ))}
-      </SimpleGrid>
-    </>
+      {data.length == 0 && (
+        <Alert status="warning">
+          <AlertIcon />
+          Seems That There Is No Game For this{" "}
+          {gameQuery.Genre ? "Genre" : "Platform "}
+        </Alert>
+      )}
+      {data.map((game) => (
+        <GameCardContainer key={game.id}>
+          <CardGame game={game} key={game.id}></CardGame>
+        </GameCardContainer>
+      ))}
+    </SimpleGrid>
   );
 };
 
