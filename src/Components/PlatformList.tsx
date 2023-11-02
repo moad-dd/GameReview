@@ -20,7 +20,12 @@ const PlatformList = ({ onSelectPlatform, selectedPlatform }: Props) => {
   return (
     <>
       <Menu id="menu">
-        <MenuButton as={Button} rightIcon={<BsChevronDown />}>
+        <MenuButton
+          fontSize={20}
+          fontWeight="semibold"
+          as={Button}
+          rightIcon={<BsChevronDown />}
+        >
           {selectedPlatform?.name ? selectedPlatform.name : "Platform"}
         </MenuButton>
         <MenuList zIndex="dropdown" maxHeight={"30vh"} overflowY={"scroll"}>
